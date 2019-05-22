@@ -143,7 +143,8 @@
 				CD8F2D2B1CBBC8340046AB76 /* Sources */,
 				CD8F2D2C1CBBC8340046AB76 /* Frameworks */,
 				CD8F2D2D1CBBC8340046AB76 /* Resources */,
-				CD8F2D661CBBD8620046AB76 /* ShellScript */,
+				CD8F2D661CBBD8620046AB76 /* Copy Frameworks */,
+				74F80922229543CB00FACF0D /* Copy Frameworks Auto */,
 			);
 			buildRules = (
 			);
@@ -266,6 +267,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		74F80922229543CB00FACF0D /* Copy Frameworks Auto */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Frameworks Auto";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -n \"$CARTHAGE_AUTO_COPY_FRAMEWORKS\" ]; then\n\n$CARTHAGE_PATH copy-frameworks --auto\n\nfi\n";
+		};
 		CD8F2D641CBBD8230046AB76 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,7 +313,7 @@
 			shellPath = /bin/sh;
 			shellScript = "$CARTHAGE_PATH copy-frameworks";
 		};
-		CD8F2D661CBBD8620046AB76 /* ShellScript */ = {
+		CD8F2D661CBBD8620046AB76 /* Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -302,11 +321,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
+			name = "Copy Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$CARTHAGE_PATH copy-frameworks";
+			shellScript = "if [ -z \"$CARTHAGE_AUTO_COPY_FRAMEWORKS\" ]; then\n\n    $CARTHAGE_PATH copy-frameworks\n\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
