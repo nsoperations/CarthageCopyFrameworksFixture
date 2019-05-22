@@ -283,7 +283,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -n \"$CARTHAGE_AUTO_COPY_FRAMEWORKS\" ]; then\n\n$CARTHAGE_PATH copy-frameworks --auto\n\nfi\n";
+			shellScript = "if [ -n \"$CARTHAGE_AUTO_COPY_FRAMEWORKS\" ]; then\n\n    echo \"Copying frameworks using automatic inference\"\n    $CARTHAGE_PATH copy-frameworks --auto\n\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		CD8F2D641CBBD8230046AB76 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -326,7 +327,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -z \"$CARTHAGE_AUTO_COPY_FRAMEWORKS\" ]; then\n\n    $CARTHAGE_PATH copy-frameworks\n\nfi\n";
+			shellScript = "if [ -z \"$CARTHAGE_AUTO_COPY_FRAMEWORKS\" ]; then\n\n    echo \"Copying frameworks using manual input files\"\n    $CARTHAGE_PATH copy-frameworks\n\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
